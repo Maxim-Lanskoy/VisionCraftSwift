@@ -6,6 +6,10 @@
 
 # VisionCraftSwift
 
+<p align="center">
+<img align="center" src="https://github.com/VisionCraft-org/VisionCraft/blob/main/api.gif" width="100%" alt="API Gif"/>
+</p>
+
 VisionCraftSwift is a Swift package that serves as a powerful wrapper for the [VisionCraft API](https://github.com/VisionCraft-org/VisionCraft), facilitating easy access to a wide range of AI-powered image and text generation services. This package allows developers to seamlessly integrate AI functionalities such as image generation, upscaling, LLM, and audio transcription into their cross-platform Swift applications.
 
 ## Features
