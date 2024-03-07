@@ -16,9 +16,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Package Update
-      run: swift package update
-    - name: Package Resolve
-      run: swift package resolve
     - name: Build in Release mode
       run: swift build -c release -Xswiftc -g
