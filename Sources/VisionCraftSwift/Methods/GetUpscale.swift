@@ -12,6 +12,6 @@ extension VisionCraft {
     public func upscale(image: Data) async throws -> Data {
         let string = image.base64EncodedString()
         let req = UpscaleRequest(image: string, token: token)
-        return try await VisionCraftService.upscale(from: req)
+        return try await VisionCraftService.upscale(from: req, client: self.client)
     }
 }

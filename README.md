@@ -6,11 +6,12 @@
 
 # VisionCraftSwift
 
-VisionCraftSwift is a Swift package that serves as a powerful wrapper for the [VisionCraft API](https://github.com/VisionCraft-org/VisionCraft), facilitating easy access to a wide range of AI-powered image and text generation services. This package allows developers to seamlessly integrate AI functionalities such as image generation, upscaling, LLM, and audio transcription into their cross-platform Swift applications.
+VisionCraftSwift is a Swift wrapper library for interacting with the [VisionCraft API](https://github.com/VisionCraft-org/VisionCraft), facilitating easy access to a wide range of AI-powered image and text generation services. Package leverages AsyncHTTPClient for network requests, providing first-class support for Swift concurrency, non-blocking request methods, and more.
 
 ## Features
 
 - Cross-platform support for macOS, iOS, tvOS, watchOS, and visionOS.
+- Support for Swift Concurrency with asynchronous and non-blocking network requests.
 - Comprehensive image generation capabilities using Stable Diffusion and Stable Diffusion XL models.
 - Advanced image processing features like image to image, image to video, and image upscaling.
 - Text generation and processing with support for multiple LLM models.
@@ -88,6 +89,30 @@ let img2video = try await vision.img2video(image: imageXL)
 ```
 
 For detailed usage of all available features, refer to the [VisionCraft API documentation](https://api.visioncraft.top).
+
+### Using with AsyncHTTPClient
+
+To start using VisionCraftSwift with custom AsyncHTTPClient, use next approach:
+
+```swift
+import AsyncHTTPClient
+import VisionCraftSwift
+
+let httpClient = HTTPClient(eventLoopGroupProvider: .singleton)
+defer {
+    try? httpClient.syncShutdown()
+}
+
+let visionCraft = try await VisionCraft(token: "your_api_token", client: httpClient)
+```
+
+### Shutting Down HTTPClient:
+
+When using custom AsyncHTTPClient it's important to properly shut down the HTTPClient instance when all requests are completed to avoid resource leaks:
+
+```swift
+try await httpClient.shutdown()
+```
 
 ## Limitations
 

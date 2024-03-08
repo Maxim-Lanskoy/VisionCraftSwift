@@ -12,6 +12,6 @@ extension VisionCraft {
     public func img2video(image: Data) async throws -> Data {
         let string = image.base64EncodedString()
         let req = Img2VideoRequest(token: token, image: string)
-        return try await VisionCraftService.img2video(from: req)
+        return try await VisionCraftService.img2video(from: req, client: self.client)
     }
 }

@@ -5,10 +5,12 @@
 // Created by Maxim Lanskoy on 07.03.2024.
 //
 
+import AsyncHTTPClient
+
 extension VisionCraftService {
     
-    static public func whisper(from params: WhisperRequest) async throws -> WhisperResponse {
-        let result: Response<WhisperResponse> = await self.post(request: params, endpoint: "whisper")
+    static public func whisper(from params: WhisperRequest, client: HTTPClient) async throws -> WhisperResponse {
+        let result: Response<WhisperResponse> = await self.post(request: params, endpoint: "whisper", client: client)
         switch result {
         case .success(let response):
             return response

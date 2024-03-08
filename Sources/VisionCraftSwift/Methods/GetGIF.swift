@@ -12,6 +12,6 @@ extension VisionCraft {
         let negativePrompt = negative ?? defaultNegative
         let req = GIFRequest(sampler: safeSampler, prompt: prompt, negativePrompt: negativePrompt,
                              token: token, cfgScale: cfg, steps: steps)
-        return try await VisionCraftService.gif(from: req)
+        return try await VisionCraftService.gif(from: req, client: self.client)
     }
 }

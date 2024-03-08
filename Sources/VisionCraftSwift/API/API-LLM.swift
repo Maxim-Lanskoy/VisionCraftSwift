@@ -5,10 +5,12 @@
 // Created by Maxim Lanskoy on 07.03.2024.
 //
 
+import AsyncHTTPClient
+
 extension VisionCraftService {
     
-    static public func llm(from params: LLMRequest) async throws -> LLMResponse {
-        let result: Response<LLMResponse> = await self.post(request: params, endpoint: "llm")
+    static public func llm(from params: LLMRequest, client: HTTPClient) async throws -> LLMResponse {
+        let result: Response<LLMResponse> = await self.post(request: params, endpoint: "llm", client: client)
         switch result {
         case .success(let response):
             return response

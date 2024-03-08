@@ -19,7 +19,7 @@ extension VisionCraft {
         let req = GenerateRequest(model: safeModel, sampler: safeSampler, prompt: prompt,
                                   negativePrompt: negativePrompt, imageCount: imageCount,
                                   token: token, cfgScale: cfgScale, steps: safeSteps, loras: loras)
-        let result = try await VisionCraftService.generate(from: req)
+        let result = try await VisionCraftService.generate(from: req, client: self.client)
         return result.images.compactMap({ URL(string: $0) })
     }
 }

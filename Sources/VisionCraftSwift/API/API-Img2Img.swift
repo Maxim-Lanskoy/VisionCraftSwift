@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import AsyncHTTPClient
 
 extension VisionCraftService {
     
-    static public func img2img(from params: Img2ImgRequest) async throws -> Data {
-        let result: Response<Data> = await self.post(request: params, endpoint: "img2img")
+    static public func img2img(from params: Img2ImgRequest, client: HTTPClient) async throws -> Data {
+        let result: Response<Data> = await self.post(request: params, endpoint: "img2img", client: client)
         switch result {
         case .success(let response):
             return response

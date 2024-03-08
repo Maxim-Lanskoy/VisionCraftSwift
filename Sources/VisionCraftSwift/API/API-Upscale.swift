@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import AsyncHTTPClient
 
 extension VisionCraftService {
     
-    static public func upscale(from params: UpscaleRequest) async throws -> Data {
-        let result: Response<Data> = await self.post(request: params, endpoint: "upscale")
+    static public func upscale(from params: UpscaleRequest, client: HTTPClient) async throws -> Data {
+        let result: Response<Data> = await self.post(request: params, endpoint: "upscale", client: client)
         switch result {
         case .success(let response):
             return response

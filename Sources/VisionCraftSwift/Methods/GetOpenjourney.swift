@@ -15,6 +15,6 @@ extension VisionCraft {
                                      negativePrompt: negativePrompt,
                                      steps: steps, cfgScale: cfg,
                                      height: height, width: width)
-        return try await VisionCraftService.openjourney(from: req)
+        return try await VisionCraftService.openjourney(from: req, client: self.client)
     }
 }

@@ -15,6 +15,6 @@ extension VisionCraft {
         let safeSheduler = scheduler ?? self.schedulers.randomElement() ?? ""
         let negativePrompt = negative ?? defaultNegative
         let req = Img2ImgRequest(image: string, mask: mask, token: token, prompt: prompt, negativePrompt: negativePrompt, scheduler: safeSheduler, steps: steps, strength: strength, refiner: safeRefiner)
-        return try await VisionCraftService.img2img(from: req)
+        return try await VisionCraftService.img2img(from: req, client: self.client)
     }
 }

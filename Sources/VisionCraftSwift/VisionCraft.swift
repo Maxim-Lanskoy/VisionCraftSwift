@@ -5,7 +5,7 @@
 // Created by Maxim Lanskoy on 07.03.2024.
 //
 
-import Foundation
+import AsyncHTTPClient
 
 public struct VisionCraft {
     
@@ -19,22 +19,25 @@ public struct VisionCraft {
     internal let modelsLLM:    [String]
     internal let schedulers:   [String]
     internal let refiners:     [String]
+    internal var client:      HTTPClient
     
     internal var defaultNegative = """
     Ugly, Disfigured, Deformed, Low quality, Pixelated, Blurry, Grains, Text, Watermark, Signature, Out of frame, Disproportioned, Bad proportions, Gross proportions, Bad anatomy, Duplicate, Cropped, Extra hands, Extra arms, Extra legs, Extra fingers, Extra limbs, Long neck, Mutation, Mutilated, Mutated hands, Poorly drawn face, Poorly drawn hands, Missing hands, Missing arms, Missing legs, Missing fingers, Low resolution, Morbid.
     """
     
-    public init(token: String) async throws {
+    public init(token: String, client: HTTPClient? = nil) async throws {
+        let safeClient = client ?? HTTPClient(eventLoopGroupProvider: .singleton)
         self.token = token
-        self.models = try await VisionCraftService.getModels()
-        self.samplers = try await VisionCraftService.getSamplers()
-        self.loras = try await VisionCraftService.getLoras()
-        self.modelsXL = try await VisionCraftService.getModelsXL()
-        self.samplersXL = try await VisionCraftService.getSamplersXL()
-        self.schedulersXL = try await VisionCraftService.getSchedulersXL()
-        self.modelsLLM = try await VisionCraftService.getModelsLLM()
-        self.schedulers = try await VisionCraftService.getSchedulers()
-        self.refiners = try await VisionCraftService.getRefiners()
+        self.client = safeClient
+        self.models = try await VisionCraftService.getModels(client: safeClient)
+        self.samplers = try await VisionCraftService.getSamplers(client: safeClient)
+        self.loras = try await VisionCraftService.getLoras(client: safeClient)
+        self.modelsXL = try await VisionCraftService.getModelsXL(client: safeClient)
+        self.samplersXL = try await VisionCraftService.getSamplersXL(client: safeClient)
+        self.schedulersXL = try await VisionCraftService.getSchedulersXL(client: safeClient)
+        self.modelsLLM = try await VisionCraftService.getModelsLLM(client: safeClient)
+        self.schedulers = try await VisionCraftService.getSchedulers(client: safeClient)
+        self.refiners = try await VisionCraftService.getRefiners(client: safeClient)
     }
     
     // Usage Examples:

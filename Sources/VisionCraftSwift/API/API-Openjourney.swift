@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import AsyncHTTPClient
 
 extension VisionCraftService {
     
-    static public func openjourney(from params: OpenjourneyRequest) async throws -> Data {
-        let result: Response<Data> = await self.post(request: params, endpoint: "openjourney")
+    static public func openjourney(from params: OpenjourneyRequest, client: HTTPClient) async throws -> Data {
+        let result: Response<Data> = await self.post(request: params, endpoint: "openjourney", client: client)
         switch result {
         case .success(let response):
             return response

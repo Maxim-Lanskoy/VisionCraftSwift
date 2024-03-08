@@ -5,10 +5,12 @@
 // Created by Maxim Lanskoy on 07.03.2024.
 //
 
+import AsyncHTTPClient
+
 extension VisionCraftService {
     
-    static public func getModels() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "models")
+    static public func getModels(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "models", client: client)
         switch result {
         case .success(let response):
             return response
@@ -17,8 +19,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func getSamplers() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "samplers")
+    static public func getSamplers(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "samplers", client: client)
         switch result {
         case .success(let response):
             return response
@@ -27,8 +29,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func getLoras() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "loras")
+    static public func getLoras(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "loras", client: client)
         switch result {
         case .success(let response):
             return response
@@ -41,8 +43,8 @@ extension VisionCraftService {
 
 extension VisionCraftService {
     
-    static public func getModelsXL() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "models-xl")
+    static public func getModelsXL(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "models-xl", client: client)
         switch result {
         case .success(let response):
             return response
@@ -51,8 +53,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func getSamplersXL() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "samplers-xl")
+    static public func getSamplersXL(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "samplers-xl", client: client)
         switch result {
         case .success(let response):
             return response
@@ -61,8 +63,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func getModelsLLM() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "models-llm")
+    static public func getModelsLLM(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "models-llm", client: client)
         switch result {
         case .success(let response):
             return response
@@ -74,8 +76,8 @@ extension VisionCraftService {
 
 extension VisionCraftService {
     
-    static public func getSchedulersXL() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "schedulers-xl")
+    static public func getSchedulersXL(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "schedulers-xl", client: client)
         switch result {
         case .success(let response):
             return response
@@ -84,8 +86,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func getSchedulers() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "img2img/schedulers")
+    static public func getSchedulers(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "img2img/schedulers", client: client)
         switch result {
         case .success(let response):
             return response
@@ -94,8 +96,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func getRefiners() async throws -> [String] {
-        let result: Response<[String]> = await self.get(endpoint: "img2img/refiners")
+    static public func getRefiners(client: HTTPClient) async throws -> [String] {
+        let result: Response<[String]> = await self.get(endpoint: "img2img/refiners", client: client)
         switch result {
         case .success(let response):
             return response

@@ -8,7 +8,12 @@ let package = Package(
     products: [
         .library(name: "VisionCraft", targets: ["VisionCraftSwift"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.20.1")
+    ],
     targets: [
-        .target(name: "VisionCraftSwift")
+        .target(name: "VisionCraftSwift", dependencies: [
+            .product(name: "AsyncHTTPClient", package: "async-http-client")
+        ])
     ]
 )

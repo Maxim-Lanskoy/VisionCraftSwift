@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import AsyncHTTPClient
 
 extension VisionCraftService {
     
-    static public func midjourney(from params: MidjourneyRequest) async throws -> MidjourneyResponse {
-        let result: Response<MidjourneyResponse> = await self.post(request: params, endpoint: "midjourney")
+    static public func midjourney(from params: MidjourneyRequest, client: HTTPClient) async throws -> MidjourneyResponse {
+        let result: Response<MidjourneyResponse> = await self.post(request: params, endpoint: "midjourney", client: client)
         switch result {
         case .success(let response):
             return response
@@ -19,8 +20,8 @@ extension VisionCraftService {
         }
     }
     
-    static public func midjourney(from params: MidjourneyResultRequest) async throws -> MidjourneyResultResponse {
-        let result: Response<MidjourneyResultResponse> = await self.post(request: params, endpoint: "midjourney/result")
+    static public func midjourney(from params: MidjourneyResultRequest, client: HTTPClient) async throws -> MidjourneyResultResponse {
+        let result: Response<MidjourneyResultResponse> = await self.post(request: params, endpoint: "midjourney/result", client: client)
         switch result {
         case .success(let response):
             return response

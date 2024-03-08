@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import AsyncHTTPClient
 
 extension VisionCraftService {
     
-    static public func generateXL(from params: GenerateXLRequest) async throws -> Data {
-        let result: Response<Data> = await self.post(request: params, endpoint: "generate-xl")
+    static public func generateXL(from params: GenerateXLRequest, client: HTTPClient) async throws -> Data {
+        let result: Response<Data> = await self.post(request: params, endpoint: "generate-xl", client: client)
         switch result {
         case .success(let response):
             return response

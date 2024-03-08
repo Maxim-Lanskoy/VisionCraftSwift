@@ -17,6 +17,6 @@ extension VisionCraft {
         let req = GenerateXLRequest(prompt: prompt, model: safeModel, token: token,
                                     negativePrompt: negativePrompt, height: height,
                                     width: width, sampler: safeSampler, scheduler: safeSchedule)
-        return try await VisionCraftService.generateXL(from: req)
+        return try await VisionCraftService.generateXL(from: req, client: self.client)
     }
 }
