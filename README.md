@@ -10,7 +10,7 @@
 <img align="center" src="https://github.com/VisionCraft-org/VisionCraft/blob/main/api.gif" width="100%" alt="API Gif"/>
 </p>
 
-VisionCraftSwift is a Swift wrapper library for interacting with the [VisionCraft API](https://github.com/VisionCraft-org/VisionCraft), facilitating easy access to a wide range of AI-powered image and text generation services. Package leverages AsyncHTTPClient for network requests, providing first-class support for Swift concurrency, non-blocking request methods, and more.
+VisionCraftSwift is a Swift wrapper library for interacting with the [VisionCraft API](https://github.com/VisionCraft-org/VisionCraft), facilitating easy access to a wide range of AI-powered image and text generation services. Package leverages [AsyncHTTPClient](https://github.com/swift-server/async-http-client) for network requests, providing first-class support for Swift concurrency, non-blocking request methods, and more.
 
 ## Features
 
@@ -96,7 +96,7 @@ For detailed usage of all available features, refer to the [VisionCraft API docu
 
 ### Using with AsyncHTTPClient
 
-To start using VisionCraftSwift with custom AsyncHTTPClient, use next approach:
+To start using VisionCraftSwift with custom [AsyncHTTPClient](https://github.com/swift-server/async-http-client), use next approach:
 
 ```swift
 import AsyncHTTPClient
@@ -112,7 +112,7 @@ let visionCraft = try await VisionCraft(token: "your_api_token", client: httpCli
 
 ### Shutting down HTTPClient:
 
-When using custom AsyncHTTPClient it's important to properly shut down the HTTPClient instance when all requests are completed to avoid resource leaks:
+When using custom [AsyncHTTPClient](https://github.com/swift-server/async-http-client) it's important to properly shut down the HTTPClient instance when all requests are completed to avoid resource leaks:
 
 ```swift
 try await httpClient.shutdown()
