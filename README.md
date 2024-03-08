@@ -6,6 +6,10 @@
 
 # VisionCraftSwift
 
+<p align="center">
+<img align="center" src="https://github.com/VisionCraft-org/VisionCraft/blob/main/api.gif" width="100%" alt="API Gif"/>
+</p>
+
 VisionCraftSwift is a Swift wrapper library for interacting with the [VisionCraft API](https://github.com/VisionCraft-org/VisionCraft), facilitating easy access to a wide range of AI-powered image and text generation services. Package leverages AsyncHTTPClient for network requests, providing first-class support for Swift concurrency, non-blocking request methods, and more.
 
 ## Features
