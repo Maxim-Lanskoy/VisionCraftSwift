@@ -110,7 +110,7 @@ defer {
 let visionCraft = try await VisionCraft(token: "your_api_token", client: httpClient)
 ```
 
-### Shutting Down HTTPClient:
+### Shutting down HTTPClient:
 
 When using custom AsyncHTTPClient it's important to properly shut down the HTTPClient instance when all requests are completed to avoid resource leaks:
 
