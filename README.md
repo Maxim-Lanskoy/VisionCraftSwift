@@ -1,7 +1,7 @@
 <p align="center">
     <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.9-brown.svg" alt="Swift Version" /></a>
     <a href="https://swift.org/download/"><img src="https://img.shields.io/badge/OS-Mac%20OS%20/%20iOS%20/%20tvOS%20/%20watchOS%20/%20visionOS-orange.svg" alt="Platform" /></a>
-    <a href="https://github.com/Maxim-Lanskoy/Orion-Nebula/actions"><img src="https://github.com/Maxim-Lanskoy/VisionCraftSwift/actions/workflows/swift.yml/badge.svg" alt="Actions" /></a>
+    <a href="https://github.com/Maxim-Lanskoy/VisionCraftSwift/actions"><img src="https://github.com/Maxim-Lanskoy/VisionCraftSwift/actions/workflows/swift.yml/badge.svg" alt="Actions" /></a>
 </p>
 
 # VisionCraftSwift
