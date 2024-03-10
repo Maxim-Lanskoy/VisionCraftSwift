@@ -16,7 +16,7 @@ internal struct GenerateRequest: Codable {
     let token: String           // (string) - your API key
     let cfgScale: Int?          // (integer) (optional: default is 10) - the CFG Scale (0-20)
     let steps: Int?             // (integer) (optional: default is 30)- the number of steps (1-50)
-    let loras: [String:String]? // (dict) (optional) - a dictionary in which the key is the name of the
+    let loras: [String:Float]?  // (dict) (optional) - a dictionary in which the key is the name of the
                                 //                     Lora, and the meaning is its weight.
     
     enum CodingKeys: String, CodingKey {
@@ -29,6 +29,18 @@ internal struct GenerateRequest: Codable {
         case cfgScale = "cfg_scale"
         case steps
         case loras
+    }
+    
+    init(model: String, sampler: String, prompt: String, negativePrompt: String? = nil, imageCount: Int, token: String, cfgScale: Int = 10, steps: Int = 30, loras: [String:Float]? = nil) {
+        self.model = model
+        self.sampler = sampler
+        self.prompt = prompt
+        self.negativePrompt = negativePrompt
+        self.imageCount = imageCount
+        self.token = token
+        self.cfgScale = cfgScale
+        self.steps = steps
+        self.loras = loras
     }
 }
 
@@ -53,5 +65,16 @@ internal struct GenerateXLRequest: Codable {
         case width
         case sampler
         case scheduler
+    }
+    
+    init(prompt: String, model: String, token: String, negativePrompt: String? = nil, height: Int = 1024, width: Int = 1024, sampler: String, scheduler: String) {
+        self.prompt = prompt
+        self.model = model
+        self.token = token
+        self.negativePrompt = negativePrompt
+        self.height = height
+        self.width = width
+        self.sampler = sampler
+        self.scheduler = scheduler
     }
 }

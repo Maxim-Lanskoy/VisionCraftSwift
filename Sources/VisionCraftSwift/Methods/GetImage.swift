@@ -9,7 +9,7 @@ import Foundation
 
 extension VisionCraft {
     
-    public func image(prompt: String, negative: String? = nil, model: String? = nil, sampler: String? = nil, loras: [String]? = nil, cfg: Int = 6, steps: Int = 10, count: Int = 1) async throws -> [URL] {
+    public func image(prompt: String, negative: String? = nil, model: String? = nil, sampler: String? = nil, loras: [String:Float]? = nil, cfg: Int = 6, steps: Int = 10, count: Int = 1) async throws -> [URL] {
         let safeModel   = model ?? self.models.randomElement() ?? ""
         let safeSampler = sampler ?? self.samplers.randomElement() ?? ""
         let negativePrompt = negative ?? defaultNegative

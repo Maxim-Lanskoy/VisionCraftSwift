@@ -21,6 +21,13 @@ internal struct WhisperRequest: Codable {
         case language
         case task
     }
+    
+    init(audio: String, token: String, language: String = "auto", task: WhisperTaskType = .transcribe) {
+        self.audio = audio
+        self.token = token
+        self.language = language
+        self.task = task
+    }
 }
 
 // MARK: - Whisper Task Type Enum

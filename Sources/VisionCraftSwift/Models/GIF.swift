@@ -23,4 +23,13 @@ internal struct GIFRequest: Codable {
         case cfgScale = "cfg_scale"
         case steps
     }
+    
+    init(sampler: String, prompt: String, negativePrompt: String? = nil, token: String, cfgScale: Int = 10, steps: Int = 30) {
+        self.sampler = sampler
+        self.prompt = prompt
+        self.negativePrompt = negativePrompt
+        self.token = token
+        self.cfgScale = cfgScale
+        self.steps = steps
+    }
 }

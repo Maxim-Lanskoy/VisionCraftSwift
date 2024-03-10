@@ -32,4 +32,16 @@ internal struct Img2ImgRequest: Codable {
         case strength
         case refiner
     }
+    
+    init(image: String, mask: String? = nil, token: String, prompt: String, negativePrompt: String? = nil, scheduler: String = "DDIM", steps: Int = 50, strength: Double = 0.8, refiner: String = "no_refiner") {
+        self.image = image
+        self.mask = mask
+        self.token = token
+        self.prompt = prompt
+        self.negativePrompt = negativePrompt
+        self.scheduler = scheduler
+        self.steps = steps
+        self.strength = strength
+        self.refiner = refiner
+    }
 }

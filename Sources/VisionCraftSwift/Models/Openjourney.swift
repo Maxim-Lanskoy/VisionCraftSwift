@@ -25,4 +25,14 @@ internal struct OpenjourneyRequest: Codable {
         case height
         case width
     }
+    
+    init(token: String, prompt: String, negativePrompt: String? = nil, steps: Int = 50, cfgScale: Float = 7.5, height: Int = 1024, width: Int = 1024) {
+        self.token = token
+        self.prompt = prompt
+        self.negativePrompt = negativePrompt
+        self.steps = steps
+        self.cfgScale = cfgScale
+        self.height = height
+        self.width = width
+    }
 }
