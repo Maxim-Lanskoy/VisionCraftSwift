@@ -6,12 +6,8 @@
 //
 
 // MARK: POST - /upscale - Upscale
-// {
-//  "image": "string",
-//  "token": "string"
-// }
 
 internal struct UpscaleRequest: Codable {
-    let image: String
-    let token: String
+    let image: String // (string) - your image in base64 format or URL to your image
+    let token: String // (string) - your API key
 }

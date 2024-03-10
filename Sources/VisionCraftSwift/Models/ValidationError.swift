@@ -6,29 +6,17 @@
 //
 
 // MARK: - Validation Error
-// {
-//  "detail": [
-//    {
-//      "loc": [
-//        "string",
-//        0
-//      ],
-//      "msg": "string",
-//      "type": "string"
-//    }
-//  ]
-// }
 
 public struct ValidationError: Codable {
-    public let detail: [Detail]
+    public let detail: [Detail] // (list) - list of validation errors
 }
 
 public struct SimpleError: Codable {
-    public let error: String
+    public let error: String    // (string) - error message
 }
 
 public struct Detail: Codable {
-    public let loc: [String]
-    public let msg: String
-    public let type: String
+    public let loc: [String]    // (list) - location of the error
+    public let msg: String      // (string) - error message
+    public let type: String     // (string) - type of the error
 }

@@ -41,11 +41,11 @@ public struct VisionCraft {
     }
     
     // Usage Examples:
-    // let vision = try await VisionCraft(token: "80d0ce43-7a54-44e8-ad81-286775ef52bf")
+    // let vision = try await VisionCraft(token: "YOUR_API_KEY")
     // let image = try await vision.image(prompt: "Cat")
-    // let imageXL = try await vision.imageXL(prompt: "Cat", width: 512, height: 512)
+    // let imageXL = try await vision.imageXL(prompt: "Cat")
     // let upscale = try await vision.upscale(image: image)
-    // let messages = [LLMMessage.init(role: "user", content: "How?")]
+    // let messages = [LLMMessage.init(role: "user", content: "Hi!")]
     // let dialogue = try await vision.llm(messages: messages)
     // let whisper = try await vision.whisper(audio: nil)
     // let gif = try await vision.gif(prompt: "Cat")

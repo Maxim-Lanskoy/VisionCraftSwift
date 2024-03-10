@@ -6,24 +6,15 @@
 //
 
 // MARK: POST - /openjourney - Openjourney
-// {
-//  "token": "string",
-//  "prompt": "string",
-//  "negative_prompt": "Ugly, Disfigured, Deformed, Low quality, Pixelated, Blurry, Grains, Text, Watermark, Signature, Out of frame, Disproportioned, Bad proportions, Gross proportions, Bad anatomy, Duplicate, Cropped, Extra hands, Extra arms, Extra legs, Extra fingers, Extra limbs, Long neck, Mutation, Mutilated, Mutated hands, Poorly drawn face, Poorly drawn hands, Missing hands, Missing arms, Missing legs, Missing fingers, Low resolution, Morbid.",
-//  "steps": 50,
-//  "cfg_scale": 7.5,
-//  "height": 1024,
-//  "width": 1024
-// }
 
 internal struct OpenjourneyRequest: Codable {
-    let token: String
-    let prompt: String
-    let negativePrompt: String
-    let steps: Int
-    let cfgScale: Float
-    let height: Int
-    let width: Int
+    let token: String           // (string) - your API key from VisionCraft API
+    let prompt: String          // (string) - a text prompt for generation
+    let negativePrompt: String? // (string) (optional) - text prompt that the model should not be drawn on the picture
+    let steps: Int?             // (integer) (optional: default is 50)- the number of steps (1-50)
+    let cfgScale: Float?        // (float) (optional: default is 7.5) - the CFG Scale (1-20)
+    let height: Int?            // (integer) (optional: default is 50)- the number of steps (1-50)
+    let width: Int              // (integer) - generated image width (minimum 128, maximum 1024), default is 1024
     
     enum CodingKeys: String, CodingKey {
         case token

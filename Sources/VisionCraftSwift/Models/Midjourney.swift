@@ -6,25 +6,17 @@
 //
 
 // MARK: POST - /midjourney - Generate Image Route
-// {
-//  "prompt": "string",
-//  "token": "string"
-// }
 
 internal struct MidjourneyRequest: Codable {
-    let prompt: String
-    let token: String
+    let prompt: String // (string) - a text prompt for generation
+    let token: String  // (string) - your API key from VisionCraft API
 }
 
 // MARK: POST - /midjourney/result - Get Image Route
-// {
-//  "task_id": "string",
-//  "token": "string"
-// }
 
 internal struct MidjourneyResultRequest: Codable {
-    let taskId: String
-    let token: String
+    let taskId: String // (string) - parameter data from your image generation request
+    let token: String  // (string) - your API key from VisionCraft API
     
     enum CodingKeys: String, CodingKey {
         case taskId = "task_id"

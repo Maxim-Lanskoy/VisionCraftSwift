@@ -6,28 +6,18 @@
 //
 
 // MARK: POST - /generate - Generate Image Route
-// {
-//  "model": "string",
-//  "sampler": "string",
-//  "prompt": "string",
-//  "negative_prompt": "Ugly, Disfigured, Deformed, Low quality, Pixelated, Blurry, Grains, Text, Watermark, Signature, Out of frame, Disproportioned, Bad proportions, Gross proportions, Bad anatomy, Duplicate, Cropped, Extra hands, Extra arms, Extra legs, Extra fingers, Extra limbs, Long neck, Mutation, Mutilated, Mutated hands, Poorly drawn face, Poorly drawn hands, Missing hands, Missing arms, Missing legs, Missing fingers, Low resolution, Morbid.",
-//  "image_count": 1,
-//  "token": "string",
-//  "cfg_scale": 10,
-//  "steps": 30,
-//  "loras": {}
-// }
 
 internal struct GenerateRequest: Codable {
-    let model: String
-    let sampler: String
-    let prompt: String
-    let negativePrompt: String?
-    let imageCount: Int
-    let token: String
-    let cfgScale: Int
-    let steps: Int
-    let loras: [String]?
+    let model: String           // (string) - the name of the chosen model
+    let sampler: String         // (string) - the name of the chosen sampler
+    let prompt: String          // (string) - a text prompt for generation
+    let negativePrompt: String? // (string) (optional) - text prompt that the model should not be drawn on the picture.
+    let imageCount: Int         // (integer) - the number of images to generate (up to 5 in a single request)
+    let token: String           // (string) - your API key
+    let cfgScale: Int?          // (integer) (optional: default is 10) - the CFG Scale (0-20)
+    let steps: Int?             // (integer) (optional: default is 30)- the number of steps (1-50)
+    let loras: [String:String]? // (dict) (optional) - a dictionary in which the key is the name of the
+                                //                     Lora, and the meaning is its weight.
     
     enum CodingKeys: String, CodingKey {
         case model
@@ -43,26 +33,16 @@ internal struct GenerateRequest: Codable {
 }
 
 // MARK: POST - /generate-xl - Generate Image Xl Route
-// {
-//  "prompt": "string",
-//  "model": "string",
-//  "negative_prompt": "Ugly, Disfigured, Deformed, Low quality, Pixelated, Blurry, Grains, Text, Watermark, Signature, Out of frame, Disproportioned, Bad proportions, Gross proportions, Bad anatomy, Duplicate, Cropped, Extra hands, Extra arms, Extra legs, Extra fingers, Extra limbs, Long neck, Mutation, Mutilated, Mutated hands, Poorly drawn face, Poorly drawn hands, Missing hands, Missing arms, Missing legs, Missing fingers, Low resolution, Morbid.",
-//  "token": "string",
-//  "height": 1024,
-//  "width": 1024,
-//  "sampler": "euler",
-//  "scheduler": "normal"
-// }
 
 internal struct GenerateXLRequest: Codable {
-    let prompt: String
-    let model: String
-    let token: String
-    let negativePrompt: String
-    let height: Int
-    let width: Int
-    let sampler: String
-    let scheduler: String
+    let prompt: String          // (string) - a text prompt for generation
+    let model: String           // (string) - one of the available SDXL models
+    let token: String           // (string) - your API key
+    let negativePrompt: String? // (string) (optional) - text prompt that the model should not be drawn on the picture
+    let height: Int             // (integer) - generated image height (minimum 512, maximum 1024), default is 1024
+    let width: Int              // (integer) - generated image width (minimum 512, maximum 1024), default is 1024
+    let sampler: String         // (string) - one of the available SDXL samplers
+    let scheduler: String       // (string) - one of the available SDXL schedulers
     
     enum CodingKeys: String, CodingKey {
         case prompt

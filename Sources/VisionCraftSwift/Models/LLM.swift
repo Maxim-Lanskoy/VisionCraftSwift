@@ -6,22 +6,11 @@
 //
 
 // MARK: POST - /llm - Generate Text Route
-// {
-//  "token": "string",
-//  "model": "string",
-//  "messages": [
-//    {
-//      "role": "system",
-//      "content": "string",
-//      "image": "string"
-//    }
-//  ]
-// }
 
 internal struct LLMRequest: Codable {
-    let token: String
-    let model: String
-    let messages: [LLMMessage]
+    let token: String          // (string) - your API key
+    let model: String          // (string) - the name of the chosen LLM model
+    let messages: [LLMMessage] // (list) - messages to the LLM
     
     enum CodingKeys: String, CodingKey {
         case token
