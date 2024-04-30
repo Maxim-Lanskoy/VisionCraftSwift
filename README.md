@@ -92,7 +92,7 @@ let img2img = try await vision.img2img(image: imageXL, prompt: "Cat")
 let img2video = try await vision.img2video(image: imageXL)
 ```
 
-For detailed usage of all available features, refer to the [VisionCraft API documentation](https://api.visioncraft.top).
+For detailed usage of all available features, refer to the [VisionCraft API documentation](https://docs.visioncraft.top).
 
 ### Using with AsyncHTTPClient
 
@@ -120,7 +120,7 @@ try await httpClient.shutdown()
 
 ## Limitations
 
-API usage is categorized into FREE and PREMIUM subscriptions, with PREMIUM users enjoying unlimited access to all models. Refer to the [limits documentation](https://api.visioncraft.top/limits) for more information.
+API usage is categorized into FREE and PREMIUM subscriptions, with PREMIUM users enjoying unlimited access to all models. Refer to the [limits documentation](https://docs.visioncraft.top/getting-started/subscriptions-and-limits) for more information.
 
 ## Getting Help
 
