@@ -9,8 +9,9 @@ import AsyncHTTPClient
 
 extension VisionCraftService {
     
-    static public func llm(from params: LLMRequest, client: HTTPClient) async throws -> LLMResponse {
-        let result: Response<LLMResponse> = await self.post(request: params, endpoint: "llm", client: client)
+    static public func llm(from params: LLMRequest, client: HTTPClient, bearer: String) async throws -> LLMResponse {
+        let result: Response<LLMResponse> = await self.post(request: params, endpoint: "v1/chat/completions",
+                                                             client: client,   bearer: bearer)
         switch result {
         case .success(let response):
             return response

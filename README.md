@@ -16,10 +16,8 @@ VisionCraftSwift is a Swift wrapper library for interacting with the [VisionCraf
 
 - Cross-platform support for macOS, iOS, tvOS, watchOS, and visionOS.
 - Support for Swift Concurrency with asynchronous and non-blocking network requests.
-- Comprehensive image generation capabilities using Stable Diffusion and Stable Diffusion XL models.
-- Advanced image processing features like image to image, image to video, and image upscaling.
+- Comprehensive image generation capabilities using Stable Diffusion models.
 - Text generation and processing with support for multiple LLM models.
-- Audio transcription using Whisper.
 - Easy to use API with asynchronous support for modern Swift applications.
 
 ## Installation

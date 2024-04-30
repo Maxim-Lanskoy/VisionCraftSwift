@@ -19,12 +19,15 @@ internal class VisionCraftService {
     
     private static let url = URL(string: "https://visioncraft.top/")!
 
-    private static func send<R:Codable>(req: Codable? = nil, point: String, method: HTTPMethod, client: HTTPClient) async -> Response<R> {
+    private static func send<R:Codable>(req: Codable? = nil, point: String, method: HTTPMethod, client: HTTPClient, bearer: String? = nil) async -> Response<R> {
         do {
             let endpoint = url.appendingPathComponent(point)
             var request = HTTPClientRequest(url: endpoint.absoluteString)
             request.method = method
             request.headers.add(name: "Content-Type", value: "application/json")
+            if let token = bearer {
+                request.headers.add(name: "Authorization", value: "Bearer \(token)")
+            }
             if let body = req {
                 let encoded = try JSONEncoder().encode(body)
                 request.body = .bytes(ByteBuffer(data: encoded))
@@ -51,8 +54,8 @@ internal class VisionCraftService {
         return await send(point: endpoint, method: .GET, client: client)
     }
     
-    public static func post<P:Codable,R:Codable>(request: P?, endpoint: String, client: HTTPClient) async -> Response<R> {
-        return await send(req: request, point: endpoint, method: .POST, client: client)
+    public static func post<P:Codable,R:Codable>(request: P?, endpoint: String, client: HTTPClient, bearer: String? = nil) async -> Response<R> {
+        return await send(req: request, point: endpoint, method: .POST, client: client, bearer: bearer)
     }
     
     private static func cascadeError<R:Codable>(data: ByteBuffer, fallback: String) throws -> Response<R> {
