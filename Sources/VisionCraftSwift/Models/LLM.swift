@@ -18,8 +18,8 @@ internal struct LLMRequest: Codable {
 }
 
 public struct LLMMessage: Codable {
-    let role: String
-    let content: String
+    public let role: String
+    public let content: String
     let image: String?
     
     enum CodingKeys: String, CodingKey {
