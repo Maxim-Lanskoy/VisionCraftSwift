@@ -13,12 +13,7 @@ public struct VisionCraft {
     public   let models:       [String]
     public   let samplers:     [String]
     public   let loras:        [String]
-    public   let modelsXL:     [String]
-    public   let samplersXL:   [String]
-    public   let schedulersXL: [String]
     public   let modelsLLM:    [String]
-    public   let schedulers:   [String]
-    public   let refiners:     [String]
     internal var client:      HTTPClient
     
     internal var defaultNegative = """
@@ -32,18 +27,12 @@ public struct VisionCraft {
         self.models = try await VisionCraftService.getModels(client: safeClient)
         self.samplers = try await VisionCraftService.getSamplers(client: safeClient)
         self.loras = try await VisionCraftService.getLoras(client: safeClient)
-        self.modelsXL = try await VisionCraftService.getModelsXL(client: safeClient)
-        self.samplersXL = try await VisionCraftService.getSamplersXL(client: safeClient)
-        self.schedulersXL = try await VisionCraftService.getSchedulersXL(client: safeClient)
         self.modelsLLM = try await VisionCraftService.getModelsLLM(client: safeClient)
-        self.schedulers = try await VisionCraftService.getSchedulers(client: safeClient)
-        self.refiners = try await VisionCraftService.getRefiners(client: safeClient)
     }
     
     // Usage Examples:
     // let vision = try await VisionCraft(token: "YOUR_API_KEY")
     // let image = try await vision.image(prompt: "Cat")
-    // let imageXL = try await vision.imageXL(prompt: "Cat")
     // let upscale = try await vision.upscale(image: image)
     // let messages = [LLMMessage.init(role: "user", content: "Hi!")]
     // let dialogue = try await vision.llm(messages: messages)

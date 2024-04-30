@@ -60,18 +60,9 @@ let vision = try await VisionCraft(token: "your_api_key")
 // Generate an image with Stable Diffusion
 let image = try await vision.image(prompt: "Cat")
 
-// Generate an image with Stable Diffusion XL
-let imageXL = try await vision.imageXL(prompt: "Cat", width: 512, height: 512)
-
-// Upscale an any image
-let upscale = try await vision.upscale(image: image)
-
 // Conduct a dialogue
 let messages = [LLMMessage(role: "user", content: "How?")]
 let dialogue = try await vision.llm(messages: messages)
-
-// Convert audio into text
-let whisper = try await vision.whisper(audio: nil)
 
 // Create a GIF from single image
 let gif = try await vision.gif(prompt: "Cat")
@@ -84,12 +75,6 @@ let midjourneyResult = try await vision.midJourney(taskId: "133951")
 
 // Generate an image using openjourney
 let openjourney = try await vision.openJourney(prompt: "Cat")
-
-// Generate image from another image
-let img2img = try await vision.img2img(image: imageXL, prompt: "Cat")
-
-// Generate video from image
-let img2video = try await vision.img2video(image: imageXL)
 ```
 
 For detailed usage of all available features, refer to the [VisionCraft API documentation](https://docs.visioncraft.top).
