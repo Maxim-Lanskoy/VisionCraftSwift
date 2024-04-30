@@ -16,8 +16,9 @@ class Test {
         let client = HTTPClient(eventLoopGroupProvider: .singleton)
         do {
             let vision = try await VisionCraft(token: token, client: client)
-            let image = try await vision.image(prompt: "Apple Swift AI robot.")
-            print(String(describing: image))
+            let messages = [LLMMessage(role: "user", content: "How are you today?")]
+            let dialogue = try await vision.llm(messages: messages)
+            print(String(describing: dialogue.choices.first?.message))
             try await client.shutdown()
         } catch let error {
             fatalError(String(describing: error))
