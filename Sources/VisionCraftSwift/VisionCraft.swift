@@ -10,15 +10,15 @@ import AsyncHTTPClient
 public struct VisionCraft {
     
     internal let token:         String
-    internal let models:       [String]
-    internal let samplers:     [String]
-    internal let loras:        [String]
-    internal let modelsXL:     [String]
-    internal let samplersXL:   [String]
-    internal let schedulersXL: [String]
-    internal let modelsLLM:    [String]
-    internal let schedulers:   [String]
-    internal let refiners:     [String]
+    public   let models:       [String]
+    public   let samplers:     [String]
+    public   let loras:        [String]
+    public   let modelsXL:     [String]
+    public   let samplersXL:   [String]
+    public   let schedulersXL: [String]
+    public   let modelsLLM:    [String]
+    public   let schedulers:   [String]
+    public   let refiners:     [String]
     internal var client:      HTTPClient
     
     internal var defaultNegative = """

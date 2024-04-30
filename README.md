@@ -1,7 +1,7 @@
 <p align="center">
     <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.9-brown.svg" alt="Swift Version" /></a>
     <a href="https://swift.org/download/"><img src="https://img.shields.io/badge/OS-Mac%20OS%20/%20iOS%20/%20tvOS%20/%20watchOS%20/%20visionOS-orange.svg" alt="Platform" /></a>
-    <a href="https://github.com/Maxim-Lanskoy/Orion-Nebula/actions"><img src="https://github.com/Maxim-Lanskoy/VisionCraftSwift/actions/workflows/swift.yml/badge.svg" alt="Actions" /></a>
+    <a href="https://github.com/Maxim-Lanskoy/VisionCraftSwift/actions"><img src="https://github.com/Maxim-Lanskoy/VisionCraftSwift/actions/workflows/swift.yml/badge.svg" alt="Actions" /></a>
 </p>
 
 # VisionCraftSwift
@@ -92,7 +92,7 @@ let img2img = try await vision.img2img(image: imageXL, prompt: "Cat")
 let img2video = try await vision.img2video(image: imageXL)
 ```
 
-For detailed usage of all available features, refer to the [VisionCraft API documentation](https://api.visioncraft.top).
+For detailed usage of all available features, refer to the [VisionCraft API documentation](https://docs.visioncraft.top).
 
 ### Using with AsyncHTTPClient
 
@@ -120,7 +120,7 @@ try await httpClient.shutdown()
 
 ## Limitations
 
-API usage is categorized into FREE and PREMIUM subscriptions, with PREMIUM users enjoying unlimited access to all models. Refer to the [limits documentation](https://api.visioncraft.top/limits) for more information.
+API usage is categorized into FREE and PREMIUM subscriptions, with PREMIUM users enjoying unlimited access to all models. Refer to the [limits documentation](https://docs.visioncraft.top/getting-started/subscriptions-and-limits) for more information.
 
 ## Getting Help
 
